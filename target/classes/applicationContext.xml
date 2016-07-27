@@ -1,0 +1,38 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-3.2.xsd
+        
+        http://www.springframework.org/schema/task 
+        http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+	<context:annotation-config></context:annotation-config>
+	<context:component-scan base-package="domain.*" />
+
+		<bean id="student" class="domain.Student">
+       		<property name="name" value="zhongxiang"></property>
+       		<property name="id" value="10000"></property>
+		</bean>
+		
+		<bean id="course" class="domain.Course">
+       		<property name="name" value="english"></property>
+       		<property name="credit" value="3"></property>
+		</bean>
+		
+		<bean id="app" class="app.App">
+   			<property name="student" ref="student"></property>
+		</bean>
+
+		<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+</beans>

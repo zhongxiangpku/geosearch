@@ -1,0 +1,44 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-3.2.xsd
+        
+        http://www.springframework.org/schema/task 
+        http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+
+	<context:component-scan base-package="com.ymt.*" />
+
+	<!-- <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl"> 
+		<property name="host" value="${smtp.host}" /> <property name="port" value="${smtp.port}" 
+		/> <property name="protocol" value="${smtp.protocol}" /> <property name="username" 
+		value="${smtp.username}" /> <property name="password" value="${smtp.password}" 
+		/> <property name="javaMailProperties"> <props> <prop key="mail.smtp.auth">true</prop>
+		<prop key="mail.smtp.starttls.enable">true</prop> <prop key="mail.debug">true</prop>
+		</props> </property> </bean> <bean id="simpleMailMessage" class="org.springframework.mail.SimpleMailMessage" 
+		scope="prototype"> <property name="from" value="${smtp.username}" /> </bean> -->
+		<bean id="person" class="domain.Person">
+       		<property name="name" value="zhongxiang"></property>
+       		<property name="id" value="10000"></property>
+		</bean>
+
+		<bean id="app" class="app.App">
+   			<property name="person" ref="person"></property>
+		</bean>
+
+</beans>
+	
+
+
+</beans>
